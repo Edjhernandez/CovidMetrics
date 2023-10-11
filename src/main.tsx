@@ -4,11 +4,13 @@ import './index.css'
 // import { Provider } from 'react-redux'
 // import { setupStore } from './redux/store.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import Navbar from './components/Navbar'
 const NavbarWrapper = () => {
   return (
   <div>
-      {/* <Navbar/>
-      <Outlet/> */}
+      <Navbar/>
+      <Outlet/>
   </div>
   )
 };
