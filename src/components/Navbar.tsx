@@ -1,14 +1,20 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { palete } from '../assets/palete'
 //  &:hover {
 //   background-color: #add23580;
 // }
+
 type navType = {
     color?: string; 
     height?: string;
   };
-  
+
+  type containerM = {
+    s?: string;
+  }
+
 const StyledNavbar = styled.nav<navType>`
     margin: 0;
     padding: 0;
@@ -24,6 +30,7 @@ const StyledNavbar = styled.nav<navType>`
 const ContainerImg = styled.div`
     width: 3rem; 
     padding: 0;
+    padding-left: 1rem;
     margin: 0;
 `
 
@@ -33,12 +40,30 @@ const StyledImg = styled.img`
 const StyledUl = styled.ul`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin: 0;
     padding: 0;
     height: ${ palete.headerHeight };
     list-style: none;
+`
+const StyledUl2 = styled.ul`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 1.2rem;
+    height: ${ palete.headerHeight };
+    list-style: none;
+    @media (min-width: 768px) {
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+        height: ${ palete.headerHeight };
+        background-color: transparent;
+      }
 `
 
 const StyledInput = styled.input`
@@ -81,12 +106,47 @@ const StyledLink = styled(Link)`
 `
 
 const StyledLi = styled.li`
-    width: 65%;
     text-align: center;
 
 `
+const ContainerHamburger = styled.button`
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    @media (min-width: 768px) {
+        display: none;
+    }
+`
+const ContainerMenu = styled.div<containerM>`
+    display: ${(props) => props.s === 'true' ? 'flex' : 'none'};
+    position: fixed;
+    top: ${ palete.headerHeight };
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    background-color: #05c7f2;
+    @media (min-width: 768px) {
+        display: flex;
+        width: 60%;
+        right: 0;
+        flex-direction: row;
+        top: 0;
+        height: ${ palete.headerHeight };
+        background-color: transparent;
+      }
+`
 
 const Navbar = () => {
+  const [show, setShow] = useState(false);
+  const handleClick = () => {
+    setShow((PrevShow) => !PrevShow)
+  }
+  
     return (
 //       <nav className="navbar navbar-expand-lg bg-body-tertiary">
 //   <div className="container-fluid">
@@ -125,16 +185,21 @@ const Navbar = () => {
                 <ContainerImg><StyledImg src="./covid.webp" alt="covid-logo" /></ContainerImg>
             </li>
 
-          
-             <StyledLi>
-                <StyledInput type="text" placeholder='2023-03-01'/>
-                <StyledButton>Enter</StyledButton>
-               {/* <Link className="nav-link active" aria-current="page" to="/">Home</Link> */}
-             </StyledLi>
+             <ContainerHamburger onClick={ handleClick }>
+                <svg xmlns="http://www.w3.org/2000/svg" height="48" fill="#dce4e5" viewBox="0 -960 960 960" width="48"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+             </ContainerHamburger>
+             <ContainerMenu s = { show.toString() }>
+                <StyledUl2>
+                    <StyledLi>
+                        <StyledInput type="text" placeholder='2023-03-01'/>
+                        <StyledButton>Enter</StyledButton>
+                    </StyledLi>
 
-             <li >
-               <StyledLink to="/consult">Consult a Country</StyledLink>
-             </li>
+                    <li >
+                        <StyledLink to="/consult">Consult a Country</StyledLink>
+                    </li> 
+                </StyledUl2>
+             </ContainerMenu>
          </StyledUl>
           
         
