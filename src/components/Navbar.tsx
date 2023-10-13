@@ -2,29 +2,33 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { palete } from '../assets/palete'
+// import { AppDispatch, /*RootState*/ } from '../redux/store'
+// import { useDispatch, /*useSelector*/ } from "react-redux"
+import { changeDate } from '../redux/features/DateSlice'
+import { useAppDispatch } from '../redux/hooks'
 //  &:hover {
 //   background-color: #add23580;
 // }
 
 type navType = {
-    color?: string; 
-    height?: string;
+    $color?: string; 
+    $height?: string;
   };
 
   type containerM = {
-    s?: string;
+    $s?: string;
   }
-
+  
 const StyledNavbar = styled.nav<navType>`
     margin: 0;
     padding: 0;
     position: fixed;
     top: 0;
-    height: ${(props) => props.height};
+    height: ${(props) => props.$height};
     width: 100%;
     font-weight: 400;
     font-size: 1.2rem;
-    background-color: ${(props) => props.color};
+    background-color: ${(props) => props.$color};
 `
 
 const ContainerImg = styled.div`
@@ -122,7 +126,7 @@ const ContainerHamburger = styled.button`
     }
 `
 const ContainerMenu = styled.div<containerM>`
-    display: ${(props) => props.s === 'true' ? 'flex' : 'none'};
+    display: ${(props) => props.$s === 'true' ? 'flex' : 'none'};
     position: fixed;
     top: ${ palete.headerHeight };
     justify-content: center;
@@ -142,11 +146,41 @@ const ContainerMenu = styled.div<containerM>`
 `
 
 const Navbar = () => {
-  const [show, setShow] = useState(false);
-  const handleClick = () => {
-    setShow((PrevShow) => !PrevShow)
+    //const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useAppDispatch();
+    //const  dateState  = useSelector((state: RootState) => state.date)
+    interface state {
+        date: string;
+        show: boolean;
+    }
+    const INITIAL: state = {
+        date: "",
+        show: false
+      }
+   const [data, setData] = useState<state>(INITIAL) 
+
+   const handleClick = () => {
+    setData((prevData) => {
+        return {
+            ...prevData,
+            show: !prevData.show
+        }
+    })
   }
-  
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+         const {name, value } = event.target
+        setData(prevData => {
+            return {
+                ...prevData,
+                [name]: value
+            }
+        }      
+        )
+    }
+    function handleSubmit(event: React.FormEvent<HTMLFormElement> ) {
+        event.preventDefault()
+        dispatch(changeDate(data.date))
+      }
     return (
 //       <nav className="navbar navbar-expand-lg bg-body-tertiary">
 //   <div className="container-fluid">
@@ -178,8 +212,8 @@ const Navbar = () => {
 //   </div>
 // </nav>
 
-    <StyledNavbar color= { palete.backgroundNav } 
-                  height = { palete.headerHeight }>
+    <StyledNavbar $color= { palete.backgroundNav } 
+                  $height = { palete.headerHeight }>
         <StyledUl>
             <li>
                 <ContainerImg><StyledImg src="./covid.webp" alt="covid-logo" /></ContainerImg>
@@ -188,21 +222,27 @@ const Navbar = () => {
              <ContainerHamburger onClick={ handleClick }>
                 <svg xmlns="http://www.w3.org/2000/svg" height="48" fill="#dce4e5" viewBox="0 -960 960 960" width="48"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
              </ContainerHamburger>
-             <ContainerMenu s = { show.toString() }>
+             <ContainerMenu $s = { data.show.toString() }>
                 <StyledUl2>
                     <StyledLi>
-                        <StyledInput type="text" placeholder='2023-03-01'/>
-                        <StyledButton>Enter</StyledButton>
+                        <form action="" onSubmit={ handleSubmit }>
+                            <StyledInput type="text" 
+                                placeholder='2023-03-01'
+                                name = "date"
+                                value = { data.date }
+                                onChange = { handleChange }/>
+                            <StyledButton>Enter</StyledButton>
+                        </form>
+                        
                     </StyledLi>
 
                     <li >
+                        
                         <StyledLink to="/consult">Consult a Country</StyledLink>
                     </li> 
                 </StyledUl2>
              </ContainerMenu>
          </StyledUl>
-          
-        
     </StyledNavbar>
     )
 }
