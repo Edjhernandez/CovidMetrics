@@ -180,6 +180,13 @@ const Navbar = () => {
     function handleSubmit(event: React.FormEvent<HTMLFormElement> ) {
         event.preventDefault()
         dispatch(changeDate(data.date))
+        setData(prevData => {
+            return {
+                ...prevData,
+                date: ''
+            }
+        })
+
       }
     return (
 //       <nav className="navbar navbar-expand-lg bg-body-tertiary">
