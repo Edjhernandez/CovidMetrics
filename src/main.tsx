@@ -6,6 +6,7 @@ import { setupStore } from './redux/store.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Consult from './components/Consult.tsx'
 const NavbarWrapper = () => {
   return (
   <div>
@@ -23,6 +24,12 @@ const router = createBrowserRouter([
       path: "/",
       element: (
         <h1>Home</h1>
+      ),
+    },
+    {
+      path: "/consult",
+      element: (
+        <Consult />
       ),
     }
    ]

@@ -2,13 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { palete } from '../assets/palete'
-// import { AppDispatch, /*RootState*/ } from '../redux/store'
-// import { useDispatch, /*useSelector*/ } from "react-redux"
 import { changeDate } from '../redux/features/DateSlice'
 import { useAppDispatch } from '../redux/hooks'
-//  &:hover {
-//   background-color: #add23580;
-// }
 
 type navType = {
     $color?: string; 
@@ -183,41 +178,13 @@ const Navbar = () => {
         setData(prevData => {
             return {
                 ...prevData,
+                show: !prevData.show,
                 date: ''
             }
         })
 
       }
     return (
-//       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-//   <div className="container-fluid">
-//     <a className="navbar-brand" href="#">Navbar</a>
-//     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-//       <span className="navbar-toggler-icon"></span>
-//     </button>
-//     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-//       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-//         <li className="nav-item">
-//           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-//         </li>
-//         <li className="nav-item">
-//           <Link className="nav-link" to="/about">About</Link>
-//         </li>
-//         <li className="nav-item">
-//           <Link className="nav-link" to="/cards">Cards</Link>
-//         </li>
-//         <li className="nav-item">
-//           <Link className="nav-link" to="/users">User</Link>
-//         </li>
-//         <li className="nav-item">
-//           <Link className="nav-link" to="/form">Form</Link>
-//         </li>
-        
-//       </ul>
-    
-//     </div>
-//   </div>
-// </nav>
 
     <StyledNavbar $color= { palete.backgroundNav } 
                   $height = { palete.headerHeight }>
@@ -243,9 +210,8 @@ const Navbar = () => {
                         
                     </StyledLi>
 
-                    <li >
-                        
-                        <StyledLink to="/consult">Consult a Country</StyledLink>
+                    <li >      
+                        <StyledLink to="/consult" onClick={ handleClick }>Consult a Country</StyledLink>
                     </li> 
                 </StyledUl2>
              </ContainerMenu>
