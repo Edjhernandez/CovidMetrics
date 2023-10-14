@@ -1,9 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import type { PreloadedState } from '@reduxjs/toolkit'
+import getDataWorldbydateSlice from './features/getDataWorldByDateSlice'
+import getDataWorldTotalSlice from './features/getDataWorldTotalSlice'
 
 // Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({
-    // forecast: forecastReducer,
+
+    dataworldbydate: getDataWorldbydateSlice,
+    dataworldTotal: getDataWorldTotalSlice,
     // namePlace: namePlaceReducer,
 })
 
