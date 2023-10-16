@@ -52,7 +52,7 @@ const getDataWorldTotalSlice = createSlice({
             state.loading = false; 
             state.data = action.payload.data
         })
-        .addCase(getDataWorldTotal.rejected, (state, action: PayloadAction<null | any>) => {
+        .addCase(getDataWorldTotal.rejected, (state, action: PayloadAction<string | null | any>) => {
             state.loading = false,
             state.error = action.payload
         })
