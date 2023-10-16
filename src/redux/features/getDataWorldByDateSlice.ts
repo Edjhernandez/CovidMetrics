@@ -71,7 +71,7 @@ const getDataWorldbydateSlice = createSlice({
             state.loading = false; 
             state.data = action.payload.data
         })
-        .addCase(getDataWorldbydate.rejected, (state, action: PayloadAction<any>) => {
+        .addCase(getDataWorldbydate.rejected, (state, action: PayloadAction<null | any>) => {
             state.loading = false,
             state.error = action.payload
         })
