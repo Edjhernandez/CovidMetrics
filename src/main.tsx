@@ -6,7 +6,7 @@ import { setupStore } from './redux/store.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import WorldInformation from './components/WorldInformation.tsx'
 
-/*
+
 import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Consult from './components/Consult.tsx'
@@ -14,31 +14,34 @@ const NavbarWrapper = () => {
   return (
   <div>
       <Navbar/>
-      <Outlet/>
+      <WorldInformation/>
   </div>
   )
-};
-*/
+}; 
+
 
 const router = createBrowserRouter([
   {
     path: "/", 
-    element: <WorldInformation />,
+    element:
+    <NavbarWrapper />,
+
+    
     children: [
-      {
-      path: "/",
-      element: (
-        <h1>Home</h1>
-      ),
-    },
+      
     {
       path: "/consult",
       element: (
         <Consult />
       ),
     }
-   ]
-  }
+   ] 
+  },
+ {  
+  path: "/", 
+    element:  
+    <WorldInformation/>
+  } 
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

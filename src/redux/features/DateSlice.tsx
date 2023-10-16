@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-export interface dateS {
+/* export interface dateS {
     date: string | null
-}
+} */
 
-const initialState: dateS = {
-    date: ''
+const initialState: {date: string} = {
+    date: '2023-03-01'
 }
 
 export const dateSlice = createSlice({
