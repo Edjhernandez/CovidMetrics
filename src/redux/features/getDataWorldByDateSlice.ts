@@ -1,5 +1,19 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export interface metricsworlddata {
+    date: string
+    last_update: string
+    confirmed: number
+    confirmed_diff: number
+    deaths: number
+    deaths_diff: number
+    recovered: number
+    recovered_diff: number
+    active: number
+    active_diff: number
+    fatality_rate: number
+}
+
 export const getDataWorldbydate = createAsyncThunk(
     'fetch/DataWorldbydate',
     async (date: string, thunkApi) => {
@@ -23,13 +37,25 @@ export const getDataWorldbydate = createAsyncThunk(
 export interface responsegetdata {
     loading: boolean
     error: string | null
-    data: any
+    data: metricsworlddata
 }
 
 const initialState = {
     loading: false,
     error: null,
-    data: {},
+    data: {
+        date: '',
+        last_update: '',
+        confirmed: 0,
+        confirmed_diff: 0,
+        deaths: 0,
+        deaths_diff: 0,
+        recovered: 0,
+        recovered_diff: 0,
+        active: 0,
+        active_diff: 0,
+        fatality_rate: 0
+    } 
 } as responsegetdata
 
 const getDataWorldbydateSlice = createSlice({

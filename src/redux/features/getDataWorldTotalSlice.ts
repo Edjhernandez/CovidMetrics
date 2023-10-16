@@ -24,7 +24,19 @@ export const getDataWorldTotal = createAsyncThunk(
 const initialState = {
     loading: false,
     error: null,
-    data: {},
+    data: {
+        date: '',
+        last_update: '',
+        confirmed: 0,
+        confirmed_diff: 0,
+        deaths: 0,
+        deaths_diff: 0,
+        recovered: 0,
+        recovered_diff: 0,
+        active: 0,
+        active_diff: 0,
+        fatality_rate: 0
+    } 
 } as responsegetdata
 
 const getDataWorldTotalSlice = createSlice({
