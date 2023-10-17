@@ -19,6 +19,7 @@ const StyledNavbar = styled.nav<navType>`
     margin: 0;
     padding: 0;
     position: fixed;
+    z-index: 999;
     top: 0;
     height: ${(props) => props.$height};
     width: 100%;
@@ -142,9 +143,7 @@ const ContainerMenu = styled.div<containerM>`
 `
 
 const Navbar = () => {
-    //const dispatch = useDispatch<AppDispatch>();
     const dispatch = useAppDispatch();
-    //const  dateState  = useSelector((state: RootState) => state.date)
     interface state {
         date: string;
         show: boolean;

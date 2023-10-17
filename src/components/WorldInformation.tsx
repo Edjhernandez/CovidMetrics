@@ -17,7 +17,8 @@ const Main = styled.main`
     padding-top: 0.75rem;
     width: 100%;
     background-color: #05aff270;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 `
 
 const DataInfo = styled.div`

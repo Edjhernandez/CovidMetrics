@@ -3,13 +3,14 @@ import type { PreloadedState } from '@reduxjs/toolkit'
 import getDataWorldbydateSlice from './features/getDataWorldByDateSlice'
 import getDataWorldTotalSlice from './features/getDataWorldTotalSlice'
 import dateReducer from './features/DateSlice'
+import countryReducer from './features/CountrySlice'
 
 // Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({
     date: dateReducer,
     dataworldbydate: getDataWorldbydateSlice,
     dataworldTotal: getDataWorldTotalSlice,
-    // namePlace: namePlaceReducer,
+    country: countryReducer,
 // Create the root reducer separately so we can extract the RootState type
 })
 
