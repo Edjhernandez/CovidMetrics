@@ -13,9 +13,11 @@ const Main = styled.main`
     background-size: 80% auto;
     background-position: center;
     background-position-y: top;
-    margin-top: 4.5rem;
+    margin-top: 4rem;
     padding-top: 0.75rem;
     width: 100%;
+    background-color: #05aff270;
+    height: 100vh;
 `
 
 const DataInfo = styled.div`
