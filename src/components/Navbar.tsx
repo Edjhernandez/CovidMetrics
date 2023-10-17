@@ -72,7 +72,7 @@ const StyledInput = styled.input`
     padding: 0.2rem;
     border-radius: 5px;
     border-color: transparent;
-    height: 1.2rem;
+    height: 1.28rem;
     font-family: ${ palete.fontFamily };
 `
 const StyledButton = styled.button`
@@ -201,11 +201,19 @@ const Navbar = () => {
                 <StyledUl2>
                     <StyledLi>
                         <form action="" onSubmit={ handleSubmit }>
-                            <StyledInput type="text" 
+                        <StyledInput
+                            type="date"
+                            value={data.date}
+                            name= 'date'
+                            min="2020-01-22"
+                            max="2023-03-09"
+                            onChange={ handleChange }
+                        />
+                            {/* <StyledInput type="text" 
                                 placeholder='2023-03-01'
                                 name = "date"
                                 value = { data.date }
-                                onChange = { handleChange }/>
+                                onChange = { handleChange }/> */}
                             <StyledButton>Enter</StyledButton>
                         </form>
                         

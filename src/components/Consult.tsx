@@ -7,6 +7,8 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { RootState } from '../redux/store'
 import { data } from '../redux/features/CountrySlice'
 import mapimage from '../assets/worldMap.png'
+import dateFormat from '../assets/format';
+
 const StyledMain = styled.main`
 background: url(${mapimage});
     background-repeat: no-repeat;
@@ -175,10 +177,7 @@ const [data, setData] = React.useState<data>(INITIAL)
     }   
     )
   }
-  function dateFormat(date: string) {
-    let dateF = date.split('-');
-    return dateF[2] + '-' + dateF[1] + '-' + dateF[0];
-  }
+
   return (
 <>
 <StyledMain>
