@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { palete } from '../assets/palete'
 import { changeDate } from '../redux/features/DateSlice'
 import { useAppDispatch } from '../redux/hooks'
+import { getDataWorldbydate } from '../redux/features/getDataWorldByDateSlice'
 
 type navType = {
     $color?: string; 
@@ -175,6 +176,7 @@ const Navbar = () => {
     function handleSubmit(event: React.FormEvent<HTMLFormElement> ) {
         event.preventDefault()
         dispatch(changeDate(data.date))
+        dispatch(getDataWorldbydate(data.date))
         setData(prevData => {
             return {
                 ...prevData,
