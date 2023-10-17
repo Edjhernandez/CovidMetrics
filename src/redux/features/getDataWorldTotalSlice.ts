@@ -8,8 +8,8 @@ export const getDataWorldTotal = createAsyncThunk(
             {                
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': 'b2971a2e54msh4821a568ce0a62fp19e0cdjsne83197fafb21',
-                    'X-RapidAPI-Host': 'covid-19-statistics.p.rapidapi.com'
+                    'X-RapidAPI-Key': import.meta.env.VITE_APIKEY,
+                    'X-RapidAPI-Host': import.meta.env.VITE_HOST
                 }
             })
         if(!response.ok){
