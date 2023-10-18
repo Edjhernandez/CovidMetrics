@@ -9,6 +9,13 @@ import { data } from '../redux/features/CountrySlice'
 import mapimage from '../assets/worldMap.png'
 import dateFormat from '../assets/format';
 
+const StyledP = styled.p`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 310px;  
+   height: 250px;
+`
 const StyledMain = styled.main`
 background: url(${mapimage});
     background-repeat: no-repeat;
@@ -92,6 +99,7 @@ const StyledCountry = styled.div`
   border-radius: 5px;
   border: 1px solid ${ palete.colorPriText };
   gap: 0;
+  margin-bottom: 1rem;
   padding-left: 1rem;
   & h2 {
     margin: 0rem;
@@ -115,7 +123,7 @@ const StyledSelect = styled.select`
     background-color: ${ palete.colorPriText };
     font-family: ${ palete.fontFamily };
     font-size: 1rem;
-    padding: .5em;
+    padding: 0.5rem;
     padding-right: 1em; 
     border: 0;
     margin: 0;
@@ -125,7 +133,6 @@ const StyledSelect = styled.select`
     text-overflow: '';
 `
  const StyledContainerProv = styled.article`
-    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -207,7 +214,7 @@ const [data, setData] = React.useState<data>(INITIAL)
         <button type='submit'>Search</button>
       </StyledForm>
       </StyledDiv>
-      { country.loading ? <p>Loading</p> : !country.date ? <></> :
+      { country.loading ? <StyledP>Loading</StyledP> : !country.date ? <></> :
         <StyledCountry>
         <h2>{ dateFormat(country.date) }</h2>
         <h2>{ country.country }</h2>

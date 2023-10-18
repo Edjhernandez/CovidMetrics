@@ -145,7 +145,7 @@ const ContainerMenu = styled.div<containerM>`
     background-color: #05c7f2;
     @media (min-width: 768px) {
         display: flex;
-        width: 60%;
+        width: 56%;
         right: 0;
         flex-direction: row;
         top: 0;
@@ -221,11 +221,6 @@ const Navbar = () => {
                             max="2023-03-09"
                             onChange={ handleChange }
                         />
-                            {/* <StyledInput type="text" 
-                                placeholder='2023-03-01'
-                                name = "date"
-                                value = { data.date }
-                                onChange = { handleChange }/> */}
                             <StyledButton>Enter</StyledButton>
                         </form>
                         
