@@ -6,6 +6,7 @@ import { getDataWorldbydate } from "../redux/features/getDataWorldByDateSlice";
 import { getDataWorldTotal } from "../redux/features/getDataWorldTotalSlice";
 import styled from "styled-components";
 import mapimage from '../assets/worldMap.png'
+import SomeCountries from "./SomeCountries";
 
 const Main = styled.main`
     background: url(${mapimage});
@@ -17,7 +18,8 @@ const Main = styled.main`
     padding-top: 0.75rem;
     width: 100%;
     background-color: #05aff270;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 `
 
 const DataInfo = styled.div`
@@ -42,13 +44,12 @@ const H1 = styled.h1`
     width: 100%;
     text-align: center;
     font-weight: bolder;
-    
+    margin: 0;
 `
 
 const DataContainer = styled.div`
-    margin: 1.5rem 1.5rem 0 1.5rem;
+    margin: 0 1.5rem 0.5rem 1.5rem;
     font-family: Kanit;
-    font-size: 0.75rem;
     border: solid 2px white;
     border-radius: 10px;
     display: flex;
@@ -61,6 +62,14 @@ const DataContainer = styled.div`
     @media (min-width: 768px) {
         width: 40%;
         border: none;
+        font-size: 1rem;
+    }
+    & h2 {
+        margin: 0.5rem 0 0 0;
+        font-size: 1.2rem;
+    }
+    & p {
+        margin: 0.5rem 0 0 0;
         font-size: 1rem;
     }
 `
@@ -91,7 +100,7 @@ const WorldInformation = (): ReactElement => {
                     <p>Confirmed Cases: {dataworldtotal.confirmed}</p>
                     <p>Active Cases: {dataworldtotal.active}</p>
                     <p>Deaths: {dataworldtotal.deaths}</p>
-                    <p>Recovered Cases: {dataworldtotal.recovered}</p>
+                    <p>Recovered: {dataworldtotal.recovered}</p>
                     <p>Fatality rate: {dataworldtotal.fatality_rate}</p>
                 </DataContainer>}
                 {loadingbydate ? <h3>Loading...</h3> : 
@@ -100,10 +109,11 @@ const WorldInformation = (): ReactElement => {
                     <p>Confirmed Cases: {dataworldbydate.confirmed}</p>
                     <p>Active Cases: {dataworldbydate.active}</p>
                     <p>Deaths: {dataworldbydate.deaths}</p>
-                    <p>Recovered Cases: {dataworldbydate.recovered}</p>
+                    <p>Recovered: {dataworldbydate.recovered}</p>
                     <p>Fatality rate: {dataworldbydate.fatality_rate}</p>
                 </DataContainer>}
             </DataInfo>
+            <SomeCountries/>
         </Main>
     )
 }

@@ -52,7 +52,7 @@ const getSomeCountriesBydateSlice = createSlice({
         .addCase(getSomeCountriesbydate.fulfilled, (state, action) => {
             state.loading = false; 
             const allworld: any[] = action.payload.data
-            const arrayofcapitals: string[] = ['VEN','JPN','RUS','KOR','ESP','MEX','IRN','DEU','ARE','IND','BGD','EGY']
+            const arrayofcapitals: string[] = ['VEN','ARE','RUS','KOR','ESP','MEX','IRN','DEU','JPN','IND']
             let countriestoshow: datacovid[] = []
             for(let ii = 0; ii < arrayofcapitals.length; ii += 1){
                 let namecountry = '';

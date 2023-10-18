@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { setupStore } from './redux/store.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import WorldInformation from './components/WorldInformation.tsx'
-import SomeCountries from './components/SomeCountries.tsx'
+
 
 
 import { Outlet } from 'react-router-dom'
@@ -31,12 +31,12 @@ const router = createBrowserRouter([
     children: [
       {  
         path: "/", 
-          element:(
-            <>  
+          element:
+             
           <WorldInformation/>
-          <SomeCountries/>
-          </>
-          )
+          
+          
+          
         },
         
     {
