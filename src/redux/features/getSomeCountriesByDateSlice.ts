@@ -53,7 +53,7 @@ const getSomeCountriesBydateSlice = createSlice({
             state.loading = false; 
             const allworld: any[] = action.payload.data
             const arrayofcapitals: string[] = ['VEN','ARE','RUS','KOR','ESP','MEX','IRN','DEU','JPN','IND']
-            let countriestoshow: datacovid[] = []
+            const countriestoshow: datacovid[] = []
             for(let ii = 0; ii < arrayofcapitals.length; ii += 1){
                 let namecountry = '';
                 let sum_confirmed = 0;
@@ -76,7 +76,7 @@ const getSomeCountriesBydateSlice = createSlice({
                     active: sum_active,
                     recovered: sum_recovered
                 })  
-            }; 
+            }
            state.somecountries = countriestoshow
         })
         .addCase(getSomeCountriesbydate.rejected, (state, action: PayloadAction<any>) => {
