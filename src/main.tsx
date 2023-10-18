@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import WorldInformation from './components/WorldInformation.tsx'
 
 
+
 import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Consult from './components/Consult.tsx'
@@ -30,9 +31,14 @@ const router = createBrowserRouter([
     children: [
       {  
         path: "/", 
-          element:  
+          element:
+             
           <WorldInformation/>
+          
+          
+          
         },
+        
     {
       path: "/consult",
       element: (
