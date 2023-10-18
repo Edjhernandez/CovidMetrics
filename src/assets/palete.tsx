@@ -6,5 +6,4 @@ export const palete = {
     colorPriText: "#f3f6f7",
     headerHeight: "4rem",
     fontFamily: "'Kanit', sans-serif",
-    fontFamilyTitle: "'Dela Gothic One', sans-serif;"
 }

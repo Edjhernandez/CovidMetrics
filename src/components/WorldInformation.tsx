@@ -28,6 +28,7 @@ const DataInfo = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     margin-top: 2rem;
     width: 100%;
     @media (min-width: 768px) {
@@ -45,6 +46,7 @@ const H1 = styled.h1`
     width: 100%;
     text-align: center;
     font-weight: bolder;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     margin: 0;
 `
 

@@ -78,7 +78,7 @@ export const getDataCountry = createAsyncThunk (
             act += data.data[ii].active;
             dea += data.data[ii].deaths;
             fatality += data.data[ii].fatality_rate
-            oneProv = { name: data.data[ii].region.province, confirmed: data.data[ii].confirmed, recovered: data.data[ii].recovered, actived: data.data[ii].active, deaths: data.data[ii].deaths, fatalityRate: (data.data[ii].fatality_rate * 100).toString() + '%' }
+            oneProv = { name: data.data[ii].region.province, confirmed: data.data[ii].confirmed, recovered: data.data[ii].recovered, actived: data.data[ii].active, deaths: data.data[ii].deaths, fatalityRate: (data.data[ii].fatality_rate * 100).toFixed(4).toString() + '%' }
             provs.push(oneProv)
           }
           fatality = fatality / data.data.length
@@ -86,7 +86,7 @@ export const getDataCountry = createAsyncThunk (
         
 
        return { 
-        date: data.data[0].date, country: data.data[0].region.name,  confirmed: conf, actived: act, deaths: dea, recovered: rec, fatalityRate: (fatality * 100).toString() + '%', provinces: provs
+        date: data.data[0].date, country: data.data[0].region.name,  confirmed: conf, actived: act, deaths: dea, recovered: rec, fatalityRate: (fatality * 100).toFixed(4).toString() + '%', provinces: provs
       }
       }
     }

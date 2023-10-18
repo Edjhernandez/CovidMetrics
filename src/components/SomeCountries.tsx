@@ -6,6 +6,7 @@ import { datacovid } from "../redux/features/getSomeCountriesByDateSlice"
 import styled from "styled-components"
 
 const Section = styled.section`
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     width: 100%;
     display: flex;
     flex-direction: column;

@@ -30,8 +30,8 @@ background: url(${mapimage});
     height: 100%;
 `
 const StyledH1 = styled.h1`
-    font-family: ${ palete.fontFamilyTitle };
-    font-size: 1.5rem;
+    font-weight: bolder;
+    font-size: 2rem;
     letter-spacing: 2px;
     text-align: center;
     text-shadow: 1px 2px 1px rgba(0,0,0,0.69); 
@@ -90,6 +90,8 @@ const StyledForm = styled.form`
 ` 
 const StyledCountry = styled.div`
   color: ${ palete.colorPriText };
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  font-size: 1.1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -173,16 +175,18 @@ const [data, setData] = React.useState<data>(INITIAL)
     )
   }
   const handleSubmit = (event: React.FormEvent<HTMLFormElement> ) => {
-    event.preventDefault()
-    dispatch(getDataCountry(data))
-    setData(prevData => {
-      return {
-          ...prevData,
-          prov: null,
-          provinces: ""
-      }
-    }   
-    )
+      event.preventDefault()
+      if(data.date && data.country){
+        dispatch(getDataCountry(data))
+        setData(prevData => {
+          return {
+              ...prevData,
+              prov: null,
+              provinces: ""
+          }
+        }   
+        )
+    }
   }
 
   return (
@@ -203,7 +207,7 @@ const [data, setData] = React.useState<data>(INITIAL)
         <select name="country"
         onChange={ handleChange }
         value = { data.country }>
-          <option value="" selected disabled hidden>Choice a Country</option>
+          <option value="" disabled hidden>Choice a Country</option>
         {
           countries.map((country) => {
                     return (
@@ -232,7 +236,7 @@ const [data, setData] = React.useState<data>(INITIAL)
         <StyledSelect name="provinces"
             onChange={ handleChangeProv }
             value = { data.provinces }>
-              <option value="" selected disabled hidden>Choice a province</option>
+              <option value="" disabled hidden>Choice a province</option>
             {
               country.provinces.map((country) => {
                         return (
