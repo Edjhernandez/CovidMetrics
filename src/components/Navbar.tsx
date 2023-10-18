@@ -58,13 +58,24 @@ const StyledUl2 = styled.ul`
     gap: 1.2rem;
     height: ${ palete.headerHeight };
     list-style: none;
+    & div {
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
     @media (min-width: 768px) {
         justify-content: space-between;
         flex-direction: row;
         width: 100%;
         height: ${ palete.headerHeight };
         background-color: transparent;
-      }
+         div {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+        }
+    }
 `
 
 const StyledInput = styled.input`
@@ -110,6 +121,7 @@ const StyledLi = styled.li`
     text-align: center;
 
 `
+
 const ContainerHamburger = styled.button`
     display: flex;
     width: 3rem;
@@ -218,10 +230,14 @@ const Navbar = () => {
                         </form>
                         
                     </StyledLi>
-
-                    <li >      
-                        <StyledLink to="/consult" onClick={ handleClick }>Consult a Country</StyledLink>
-                    </li> 
+                    <div>
+                        <li>
+                            <StyledLink to="/" onClick={ handleClick } >Home</StyledLink>
+                        </li>
+                        <li>      
+                            <StyledLink to="/consult" onClick={ handleClick }>Consult a Country</StyledLink>
+                        </li> 
+                    </div>
                 </StyledUl2>
              </ContainerMenu>
          </StyledUl>
