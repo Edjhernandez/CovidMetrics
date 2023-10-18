@@ -61,7 +61,7 @@ export const getDataCountry = createAsyncThunk (
         const data = await response.json();
         let conf = 0, rec=0, act=0, dea=0, fatality=0;
         let oneProv: province;
-        let provs: Array<province> = [];
+        const provs: Array<province> = [];
         if(!(data.data.length > 1)) {
           for(let ii=0;ii<data.data.length;ii++){
             conf = data.data[ii].confirmed;
