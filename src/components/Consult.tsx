@@ -6,7 +6,7 @@ import { getDataCountry } from '../redux/features/CountrySlice'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { RootState } from '../redux/store'
 import { data } from '../redux/features/CountrySlice'
-import mapimage from '../assets/worldMap.png'
+import mapimage from '../assets/worldMap.webp'
 import dateFormat from '../assets/format';
 
 const StyledP = styled.p`

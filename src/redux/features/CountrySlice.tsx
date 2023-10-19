@@ -48,9 +48,12 @@ export const getDataCountry = createAsyncThunk (
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': import.meta.env.VITE_APIKEY,
-                'X-RapidAPI-Host': import.meta.env.VITE_HOST
+                'X-RapidAPI-Key': '3ee66b2e5bmsh7df8ceda469337ap1d519ajsnf7bf982591bd',// import.meta.env.VITE_APIKEY,
+                'X-RapidAPI-Host': 'covid-19-statistics.p.rapidapi.com'//import.meta.env.VITE_HOST
             }
+//3ee66b2e5bmsh7df8ceda469337ap1d519ajsnf7bf982591bd'
+//VITE_HOST='covid-19-statistics.p.rapidapi.com'
+
         };
         
      const response = await fetch(url, options);

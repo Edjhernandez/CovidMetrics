@@ -5,3 +5,6 @@ module.exports = {
         '@babel/preset-typescript',
     ],
 };
+
+//{targets: {node: 'current'}}
+//esmodules: true
