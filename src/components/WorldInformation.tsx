@@ -6,6 +6,7 @@ import { getDataWorldbydate } from "../redux/features/getDataWorldByDateSlice";
 import { getDataWorldTotal } from "../redux/features/getDataWorldTotalSlice";
 import styled from "styled-components";
 import mapimage from '../assets/worldMap.png'
+import dateFormat from '../assets/format';
 import SomeCountries from "./SomeCountries";
 
 const Main = styled.main`
@@ -27,6 +28,7 @@ const DataInfo = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     margin-top: 2rem;
     width: 100%;
     @media (min-width: 768px) {
@@ -44,6 +46,7 @@ const H1 = styled.h1`
     width: 100%;
     text-align: center;
     font-weight: bolder;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     margin: 0;
 `
 
@@ -96,7 +99,7 @@ const WorldInformation = (): ReactElement => {
             <DataInfo>
                 {loadingtotal ? <h3>Loading...</h3> : 
                 <DataContainer>
-                    <h2>World data at last update: {dataworldtotal.date}</h2>
+                    <h2>World data at last update: {dateFormat(dataworldtotal.date)}</h2>
                     <p>Confirmed Cases: {dataworldtotal.confirmed}</p>
                     <p>Active Cases: {dataworldtotal.active}</p>
                     <p>Deaths: {dataworldtotal.deaths}</p>
@@ -105,7 +108,7 @@ const WorldInformation = (): ReactElement => {
                 </DataContainer>}
                 {loadingbydate ? <h3>Loading...</h3> : 
                 <DataContainer>
-                    <h2>Date: {dataworldbydate.date}</h2>
+                    <h2>Date: {dateFormat(dataworldbydate.date)}</h2>
                     <p>Confirmed Cases: {dataworldbydate.confirmed}</p>
                     <p>Active Cases: {dataworldbydate.active}</p>
                     <p>Deaths: {dataworldbydate.deaths}</p>

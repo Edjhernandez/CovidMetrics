@@ -19,6 +19,7 @@ const StyledNavbar = styled.nav<navType>`
     margin: 0;
     padding: 0;
     position: fixed;
+    z-index: 999;
     top: 0;
     height: ${(props) => props.$height};
     width: 100%;
@@ -57,13 +58,24 @@ const StyledUl2 = styled.ul`
     gap: 1.2rem;
     height: ${ palete.headerHeight };
     list-style: none;
+    & div {
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
     @media (min-width: 768px) {
         justify-content: space-between;
         flex-direction: row;
         width: 100%;
         height: ${ palete.headerHeight };
         background-color: transparent;
-      }
+         div {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+        }
+    }
 `
 
 const StyledInput = styled.input`
@@ -71,7 +83,7 @@ const StyledInput = styled.input`
     padding: 0.2rem;
     border-radius: 5px;
     border-color: transparent;
-    height: 1.2rem;
+    height: 1.28rem;
     font-family: ${ palete.fontFamily };
 `
 const StyledButton = styled.button`
@@ -109,6 +121,7 @@ const StyledLi = styled.li`
     text-align: center;
 
 `
+
 const ContainerHamburger = styled.button`
     display: flex;
     width: 3rem;
@@ -132,7 +145,7 @@ const ContainerMenu = styled.div<containerM>`
     background-color: #05c7f2;
     @media (min-width: 768px) {
         display: flex;
-        width: 60%;
+        width: 56%;
         right: 0;
         flex-direction: row;
         top: 0;
@@ -142,9 +155,7 @@ const ContainerMenu = styled.div<containerM>`
 `
 
 const Navbar = () => {
-    //const dispatch = useDispatch<AppDispatch>();
     const dispatch = useAppDispatch();
-    //const  dateState  = useSelector((state: RootState) => state.date)
     interface state {
         date: string;
         show: boolean;
@@ -202,19 +213,26 @@ const Navbar = () => {
                 <StyledUl2>
                     <StyledLi>
                         <form action="" onSubmit={ handleSubmit }>
-                            <StyledInput type="text" 
-                                placeholder='2023-03-01'
-                                name = "date"
-                                value = { data.date }
-                                onChange = { handleChange }/>
+                        <StyledInput
+                            type="date"
+                            value={data.date}
+                            name= 'date'
+                            min="2020-01-22"
+                            max="2023-03-09"
+                            onChange={ handleChange }
+                        />
                             <StyledButton>Enter</StyledButton>
                         </form>
                         
                     </StyledLi>
-
-                    <li >      
-                        <StyledLink to="/consult" onClick={ handleClick }>Consult a Country</StyledLink>
-                    </li> 
+                    <div>
+                        <li>
+                            <StyledLink to="/" onClick={ handleClick } >Home</StyledLink>
+                        </li>
+                        <li>      
+                            <StyledLink to="/consult" onClick={ handleClick }>Consult a Country</StyledLink>
+                        </li> 
+                    </div>
                 </StyledUl2>
              </ContainerMenu>
          </StyledUl>
