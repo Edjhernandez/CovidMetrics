@@ -8,6 +8,9 @@ export interface datacovid {
     recovered: number
 }
 
+const apikey: string = process.env.VITE_APIKEY ?? 'defaultAPIKEY'
+const host: string = process.env.VITE_HOST ?? 'defaultHOST' 
+
 export const getSomeCountriesbydate = createAsyncThunk(
     'fetch/DataCapitals',
     async (date: string, thunkApi) => {
@@ -15,11 +18,9 @@ export const getSomeCountriesbydate = createAsyncThunk(
             {                
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '3ee66b2e5bmsh7df8ceda469337ap1d519ajsnf7bf982591bd',// import.meta.env.VITE_APIKEY,
-                    'X-RapidAPI-Host': 'covid-19-statistics.p.rapidapi.com'//import.meta.env.VITE_HOST
+                    'X-RapidAPI-Key': apikey,
+                    'X-RapidAPI-Host': host
                 }
-                //3ee66b2e5bmsh7df8ceda469337ap1d519ajsnf7bf982591bd'
-//VITE_HOST='covid-19-statistics.p.rapidapi.com'
             })
         if(!response.ok){
             return thunkApi.rejectWithValue(response.status)
