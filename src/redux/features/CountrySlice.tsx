@@ -42,8 +42,8 @@ export interface data {
   prov: province | null
 }
 
-const apikey: string = process.env.VITE_APIKEY ?? 'defaultAPIKEY'
-const host: string = process.env.VITE_HOST ?? 'defaultHOST' 
+const apikey: string = process.env.VITE_APIKEY ?? ''
+const host: string = process.env.VITE_HOST ?? '' 
 
 export const getDataCountry = createAsyncThunk ( 
     'country/getByDate', 

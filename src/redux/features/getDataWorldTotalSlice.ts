@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { responsegetdata } from "./getDataWorldByDateSlice";
 
-const apikey: string = process.env.VITE_APIKEY ?? 'defaultAPIKEY'
-const host: string = process.env.VITE_HOST ?? 'defaultHOST' 
+const apikey: string = process.env.VITE_APIKEY ?? ''
+const host: string = process.env.VITE_HOST ?? '' 
 
 export const getDataWorldTotal = createAsyncThunk(
     'fetch/DataWorldTotal',

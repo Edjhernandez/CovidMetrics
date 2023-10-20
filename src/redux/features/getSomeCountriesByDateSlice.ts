@@ -8,8 +8,8 @@ export interface datacovid {
     recovered: number
 }
 
-const apikey: string = process.env.VITE_APIKEY ?? 'defaultAPIKEY'
-const host: string = process.env.VITE_HOST ?? 'defaultHOST' 
+const apikey: string = process.env.VITE_APIKEY ?? ''
+const host: string = process.env.VITE_HOST ?? '' 
 
 export const getSomeCountriesbydate = createAsyncThunk(
     'fetch/DataCapitals',

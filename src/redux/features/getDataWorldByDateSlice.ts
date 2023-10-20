@@ -14,8 +14,8 @@ export interface metricsworlddata {
     fatality_rate: number
 }
 
-const apikey: string = process.env.VITE_APIKEY ?? 'defaultAPIKEY'
-const host: string = process.env.VITE_HOST ?? 'defaultHOST' 
+const apikey: string = process.env.VITE_APIKEY ?? ''
+const host: string = process.env.VITE_HOST ?? '' 
 
 export const getDataWorldbydate = createAsyncThunk(
     'fetch/DataWorldbydate',
