@@ -1,4 +1,4 @@
-// src/setupTests.js
+ // src/setupTests.js
 import { server } from './src/mocks/server'
 // Establish API mocking before all tests.
 beforeAll(() => server.listen())
@@ -8,4 +8,4 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 
 // Clean up after the tests are finished.
-afterAll(() => server.close())
+afterAll(() => server.close()) 

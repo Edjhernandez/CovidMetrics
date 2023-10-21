@@ -203,6 +203,7 @@ const [data, setData] = React.useState<data>(INITIAL)
             min="2020-01-22"
             max="2023-03-09"
             onChange={ handleChange }
+            data-testid="date"
           />
         <select name="country"
         onChange={ handleChange }

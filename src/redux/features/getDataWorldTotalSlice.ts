@@ -6,7 +6,7 @@ const host: string = process.env.VITE_HOST ?? ''
 
 export const getDataWorldTotal = createAsyncThunk(
     'fetch/DataWorldTotal',
-    async (_, {rejectWithValue}) => {
+    async (_, {rejectWithValue}) => { 
         const response = await fetch(`https://covid-19-statistics.p.rapidapi.com/reports/total`,
             {                
                 method: 'GET',
