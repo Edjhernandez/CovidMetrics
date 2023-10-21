@@ -5,22 +5,21 @@ import { screen, waitForElementToBeRemoved } from "@testing-library/dom";
 import '@testing-library/jest-dom';
 import 'whatwg-fetch'
 
-
-
 const store = setupStore();
-
-    
-
+beforeEach(() => {
+    renderWithProviders(<WorldInformation />, { store })
+})
  
-    
-    describe('component worldinformation', () => {
+describe('component worldinformation', () => {
+
+    test('first render', async () => {
+        expect(screen.getAllByText(/Loading.../i)).toHaveLength(3);
+    })
         
-        test('first render', async () => {
-            
-            renderWithProviders(<WorldInformation />, { store })
+    test('first render', async () => {
             await waitForElementToBeRemoved(() => screen.queryAllByText(/Loading/i))
             //screen.debug()
-            expect(screen.getByText(/Several countries Information/i)).toBeInTheDocument()
+            expect(screen.getAllByText(/Deaths/i)).toHaveLength(12);
     })
 
 })
