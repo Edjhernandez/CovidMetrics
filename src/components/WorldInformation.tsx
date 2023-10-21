@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { getDataWorldbydate } from "../redux/features/getDataWorldByDateSlice";
 import { getDataWorldTotal } from "../redux/features/getDataWorldTotalSlice";
 import styled from "styled-components";
-import mapimage from '../assets/worldMap.png'
+import mapimage from '../assets/worldMap.webp'
 import dateFormat from '../assets/format';
 import SomeCountries from "./SomeCountries";
 

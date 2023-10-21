@@ -6,7 +6,7 @@ import { getDataCountry } from '../redux/features/CountrySlice'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { RootState } from '../redux/store'
 import { data } from '../redux/features/CountrySlice'
-import mapimage from '../assets/worldMap.png'
+import mapimage from '../assets/worldMap.webp'
 import dateFormat from '../assets/format';
 
 const StyledP = styled.p`
@@ -203,6 +203,7 @@ const [data, setData] = React.useState<data>(INITIAL)
             min="2020-01-22"
             max="2023-03-09"
             onChange={ handleChange }
+            data-testid="date"
           />
         <select name="country"
         onChange={ handleChange }

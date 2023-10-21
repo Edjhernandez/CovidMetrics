@@ -41,6 +41,10 @@ export interface data {
   provinces: string, 
   prov: province | null
 }
+
+const apikey: string = process.env.VITE_APIKEY ?? ''
+const host: string = process.env.VITE_HOST ?? '' 
+
 export const getDataCountry = createAsyncThunk ( 
     'country/getByDate', 
     async (dataI: data, {rejectWithValue}) => {
@@ -48,8 +52,8 @@ export const getDataCountry = createAsyncThunk (
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': import.meta.env.VITE_APIKEY,
-                'X-RapidAPI-Host': import.meta.env.VITE_HOST
+              'X-RapidAPI-Key': apikey,
+              'X-RapidAPI-Host': host
             }
         };
         

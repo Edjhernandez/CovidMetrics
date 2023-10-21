@@ -14,6 +14,9 @@ export interface metricsworlddata {
     fatality_rate: number
 }
 
+const apikey: string = process.env.VITE_APIKEY ?? ''
+const host: string = process.env.VITE_HOST ?? '' 
+
 export const getDataWorldbydate = createAsyncThunk(
     'fetch/DataWorldbydate',
     async (date: string, thunkApi) => {
@@ -21,8 +24,8 @@ export const getDataWorldbydate = createAsyncThunk(
             {                
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': import.meta.env.VITE_APIKEY,
-                'X-RapidAPI-Host': import.meta.env.VITE_HOST
+                    'X-RapidAPI-Key': apikey,
+                    'X-RapidAPI-Host': host
                 }
             })
         if(!response.ok){
@@ -79,3 +82,4 @@ const getDataWorldbydateSlice = createSlice({
 })
 
 export default getDataWorldbydateSlice.reducer
+

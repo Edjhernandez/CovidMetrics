@@ -1,19 +1,22 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { responsegetdata } from "./getDataWorldByDateSlice";
 
+const apikey: string = process.env.VITE_APIKEY ?? ''
+const host: string = process.env.VITE_HOST ?? '' 
+
 export const getDataWorldTotal = createAsyncThunk(
     'fetch/DataWorldTotal',
-    async () => {
+    async (_, {rejectWithValue}) => { 
         const response = await fetch(`https://covid-19-statistics.p.rapidapi.com/reports/total`,
             {                
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': import.meta.env.VITE_APIKEY,
-                    'X-RapidAPI-Host': import.meta.env.VITE_HOST
+                    'X-RapidAPI-Key': apikey,
+                    'X-RapidAPI-Host': host
                 }
             })
         if(!response.ok){
-            return response.status
+            return rejectWithValue(response.status)
         } else {
             const data = await response.json()
             return data
