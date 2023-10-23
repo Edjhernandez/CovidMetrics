@@ -121,7 +121,7 @@ export const dateSlice = createSlice({
           builder.addCase(getDataCountry.rejected, (state, action: PayloadAction<any>) => {
             state.loading = false
             state.error = action.payload;
-            console.log('error: ', action.payload)
+            //console.log('error: ', action.payload)
           })
         }
 })

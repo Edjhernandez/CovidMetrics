@@ -2,6 +2,7 @@
 import { rest } from 'msw'
 import { responsetotal, responsetotalbydate, responsesomecountries } from './mockResponses'
 import { responsetoUK } from './mockResponsetoUK'
+import { responseToVe } from './mockResponseToVe'
 
 
 export const handlers = [
@@ -19,9 +20,11 @@ export const handlers = [
           
       const date = req.url.searchParams.get('date')
       const iso = req.url.searchParams.get('iso')
+      const response = iso === 'GBR' ? responsetoUK : responseToVe;
+      
       return res(
         ctx.status(200),
-        ctx.json((date && iso) ? responsetoUK : responsesomecountries),
+        ctx.json((date && iso) ? response : responsesomecountries),
       )
     })
     

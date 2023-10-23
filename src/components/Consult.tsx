@@ -228,7 +228,10 @@ const [data, setData] = React.useState<data>(INITIAL)
         <p>Actived Cases: { country.actived }</p>
         <p>Deaths: { country.deaths }</p>
         <p>Fatality Rate: { country.fatalityRate }</p>
-      </StyledCountry>
+      </StyledCountry> 
+      }
+      {
+        country.error && <h3>{country.error}</h3>
       }
     </StyledContainer>
     { country.provinces.length > 1  &&
