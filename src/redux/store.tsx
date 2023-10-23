@@ -6,20 +6,21 @@ import dateReducer from './features/DateSlice'
 import countryReducer from './features/CountrySlice'
 import getSomeCountriesByDateSlice from './features/getSomeCountriesByDateSlice'
 
-// Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({
     date: dateReducer,
     dataworldbydate: getDataWorldbydateSlice,
     dataworldTotal: getDataWorldTotalSlice,
     datasomecountries: getSomeCountriesByDateSlice, 
-    country: countryReducer,
-    // namePlace: namePlaceReducer,
-// Create the root reducer separately so we can extract the RootState type
-})
+    country: countryReducer
+  })
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
     preloadedState
   })
 }

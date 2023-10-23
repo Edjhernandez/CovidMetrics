@@ -1,8 +1,6 @@
- // src/mocks/handlers.js
 import { rest } from 'msw'
 import { responsetotal, responsetotalbydate, responsesomecountries } from './mockResponses'
 import { responsetoUK } from './mockResponsetoUK'
-
 
 export const handlers = [
     
@@ -13,7 +11,7 @@ export const handlers = [
         ctx.status(200),
         ctx.json(date ? responsetotalbydate : responsetotal),
       )
-    }),//https://covid-19-statistics.p.rapidapi.com/reports
+    }),
 
     rest.get('https://covid-19-statistics.p.rapidapi.com/reports', (req, res, ctx) => {
           
@@ -24,7 +22,4 @@ export const handlers = [
         ctx.json((date && iso) ? responsetoUK : responsesomecountries),
       )
     })
-    
-    
-
 ] 
