@@ -78,3 +78,4 @@ describe('component consult', () => {
       expect(screen.getByText(/An error has ocurred/i)).toBeInTheDocument();
  })
 })
+

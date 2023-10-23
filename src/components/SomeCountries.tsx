@@ -55,6 +55,7 @@ const SomeCountries = (): ReactElement => {
     const loading = useAppSelector((state: RootState) => state.datasomecountries.loading)
     const data = useAppSelector((state: RootState) => state.datasomecountries.somecountries)
     const date = useAppSelector((state: RootState) => state.date.date)
+    const error = useAppSelector((state: RootState) => state.datasomecountries.error)
 
     useEffect(() => {
         dispatch(getSomeCountriesbydate(date))
@@ -62,22 +63,23 @@ const SomeCountries = (): ReactElement => {
     
     return(
         <Section>
-           <h3>Several countries Information</h3>
-                {loading ? <h3>Loading...</h3> :
-                    <Countriescontainer>
-                        {data?.map((data: datacovid)  => {
-                            return(
-                                <Datacountry key = {data.name}>
-                                    <h4>{data.name}</h4>
-                                    <p>Confirmed: {data.confirmed}</p>
-                                    <p>Deaths: {data.deaths}</p>
-                                    <p>Active: {data.active}</p>
-                                    <p>Recovered: {data.recovered}</p>
+            {loading ? <h3>Loading...</h3> : 
+            error !== null ? <h3>Ooopss! error: {error}, sorry...</h3> :
+            <>
+                <h3>Several countries Information</h3>
+                <Countriescontainer>
+                    {data?.map((data: datacovid)  => {
+                        return(
+                            <Datacountry key = {data.name}>
+                                <h4>{data.name}</h4>
+                                <p>Confirmed: {data.confirmed}</p>
+                                <p>Deaths: {data.deaths}</p>
+                                <p>Active: {data.active}</p>
+                                <p>Recovered: {data.recovered}</p>
                                 </Datacountry>)
                             })}
-                    </Countriescontainer>  
-                }
-            
+                </Countriescontainer> 
+            </>}
         </Section>
     )
 }
