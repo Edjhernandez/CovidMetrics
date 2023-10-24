@@ -69,7 +69,7 @@ const SomeCountries = (): ReactElement => {
     
     return(
         <Section>
-            {loading ? <img src = {svgloading} /> : 
+            {loading ? <img src = {svgloading} alt='loading-icon'/> : 
             error !== null ? <h3>Ooopss! error: {error}, sorry...</h3> :
             <>
                 <h3>Several countries Information</h3>

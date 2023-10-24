@@ -47,9 +47,9 @@ const store = setupStore();
     renderWithProviders(<RouterProvider router={router} />, { store })
 }) 
 
-describe('component worldinformation', () => {
+describe('component Navbar', () => {
     
-    test('first render', async () => {
+    test('should change a date', async () => {
         const input = screen.getByTestId('nav-date')
         await userEvent.clear(input)
         await userEvent.type(input, '2020-10-21')
