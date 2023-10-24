@@ -2,19 +2,34 @@
 
 ## Now! We are going to develop a web app to consult Covid metrics around the world, where you’ll can choose a country and a date to see details about infections
 
-### The scope for this project is learn and use:
+# Live Demo 🔗
 
-## Vite
-## ES6
-## Typescript Modules
-## Git work flow
-## styled components
-## React
-## Redux
-## Jest
+### [Live Demo link Vercel ](https://covid-metrics-alpha.vercel.app/)
 
-## Built With
-HTML5 – CSS - TS - React - Redux - Jest
+## Mobile view
+
+![mobile-view](image-1.png)
+
+## Desktop view
+
+![desktop-view](image.png)
+
+## Select a date and country/provinces
+
+![select-date](image-2.png)
+![select-country](image-3.png)
+
+## The scope for this project is learn and built using:
+
+### Vite
+### ES6
+### Typescript Modules
+### Git workflow
+### styled components
+### React
+### Redux
+### Jest
+### Mock Service Worker
 
 ## Authors 🤯
 
