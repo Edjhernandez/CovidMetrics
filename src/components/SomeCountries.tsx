@@ -4,6 +4,7 @@ import { RootState } from "../redux/store"
 import { getSomeCountriesbydate } from "../redux/features/getSomeCountriesByDateSlice" 
 import { datacovid } from "../redux/features/getSomeCountriesByDateSlice"
 import styled from "styled-components"
+import svgloading from '../assets/loading.svg'
 
 const Section = styled.section`
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
@@ -13,6 +14,11 @@ const Section = styled.section`
     justify-content: center;
     align-items: center;
     text-align: center;
+    & img {
+        width: 50px;
+        height: auto;
+        margin-top: 6rem;
+    }
 `
 const Countriescontainer = styled.div`
     width: 100%;
@@ -63,7 +69,7 @@ const SomeCountries = (): ReactElement => {
     
     return(
         <Section>
-            {loading ? <h3>Loading...</h3> : 
+            {loading ? <img src = {svgloading} alt='loading-icon'/> : 
             error !== null ? <h3>Ooopss! error: {error}, sorry...</h3> :
             <>
                 <h3>Several countries Information</h3>

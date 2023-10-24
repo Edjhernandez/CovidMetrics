@@ -8,13 +8,18 @@ import { RootState } from '../redux/store'
 import { data } from '../redux/features/CountrySlice'
 import mapimage from '../assets/worldMap.webp'
 import dateFormat from '../assets/format';
+import svgloading from '../assets/loading.svg'
 
-const StyledP = styled.p`
+const StyledP = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
    width: 310px;  
    height: 250px;
+   & img {
+        width: 50px;
+        height: auto;
+    }
 `
 const StyledMain = styled.main`
 background: url(${mapimage});
@@ -87,6 +92,9 @@ const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  & button {
+    letter-spacing: 0.2rem;
+  }
 ` 
 const StyledCountry = styled.div`
   color: ${ palete.colorPriText };
@@ -219,7 +227,7 @@ const [data, setData] = React.useState<data>(INITIAL)
         <button type='submit'>Search</button>
       </StyledForm>
       </StyledDiv>
-      { country.loading ? <StyledP>Loading</StyledP> : !country.date ? <></> :
+      { country.loading ? <StyledP><img src = {svgloading} /></StyledP> : !country.date ? <></> :
         <StyledCountry>
         <h2>{ dateFormat(country.date) }</h2>
         <h2>{ country.country }</h2>

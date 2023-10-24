@@ -14,18 +14,18 @@ beforeEach(() => {
 
 describe('component worldinformation', () => {
     
-    test('first render', async () => {
-        expect(screen.getAllByText(/Loading.../i)).toHaveLength(3);
+    test('first render with loading icons', async () => {
+        expect(screen.getAllByAltText(/loading-icon/i)).toHaveLength(3);
     })
         
-    test('first render', async () => {
-        await waitForElementToBeRemoved(() => screen.queryAllByText(/Loading/i))
+    test('should render the three components', async () => {
+        await waitForElementToBeRemoved(() => screen.queryAllByAltText(/loading-icon/i))
         expect(screen.getAllByText(/Deaths/i)).toHaveLength(12);
     })
     
-     test('asynchronous rejection', async () => {
+     test('asynchronous rejection for api response error', async () => {
         server.use(...errorHandlers)
-        await waitForElementToBeRemoved(() => screen.queryAllByText(/Loading/i))
+        await waitForElementToBeRemoved(() => screen.queryAllByAltText(/loading-icon/i))
         expect(screen.getAllByText(/Ooopss! error: 423, sorry.../i)).toHaveLength(3);
     })
 
