@@ -93,7 +93,7 @@ const StyledForm = styled.form`
   align-items: center;
   gap: 1rem;
   & button {
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.17rem;
   }
 ` 
 const StyledCountry = styled.div`
