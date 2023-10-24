@@ -8,6 +8,7 @@ import styled from "styled-components";
 import mapimage from '../assets/worldMap.webp'
 import dateFormat from '../assets/format';
 import SomeCountries from "./SomeCountries";
+import svgloading from '../assets/loading.svg'
 
 const Main = styled.main`
     background: url(${mapimage});
@@ -31,8 +32,10 @@ const DataInfo = styled.div`
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     margin-top: 2rem;
     width: 100%;
+    height: 200px;
+    text-align: center;
     @media (min-width: 768px) {
-        justify-content: space-between;
+        justify-content: center;
         flex-direction: row;
         width: 90%;
         border: solid 2px white;
@@ -75,6 +78,10 @@ const DataContainer = styled.div`
         margin: 0.5rem 0 0 0;
         font-size: 1rem;
     }
+    & img {
+        width: 50px;
+        height: auto;
+    }
 `
 
 const WorldInformation = (): ReactElement => {
@@ -97,26 +104,30 @@ const WorldInformation = (): ReactElement => {
         <Main>
             <H1>World Covid-19 Metrics</H1>
             <DataInfo>
-                {loadingtotal ? <h3>Loading...</h3> : 
-                errortotal !== null ? <h3>Ooopss! error: {errortotal}, sorry...</h3> :
                 <DataContainer>
-                    <h2>World data at last update: {dateFormat(dataworldtotal.date)}</h2>
-                    <p>Confirmed Cases: {dataworldtotal.confirmed}</p>
-                    <p>Active Cases: {dataworldtotal.active}</p>
-                    <p>Deaths: {dataworldtotal.deaths}</p>
-                    <p>Recovered: {dataworldtotal.recovered}</p>
-                    <p>Fatality rate: {dataworldtotal.fatality_rate}</p>
-                </DataContainer>}
-                {loadingbydate ? <h3>Loading...</h3> : 
+                    {loadingtotal ? <img src = {svgloading}/> : 
+                    errortotal !== null ? <h3>Ooopss! error: {errortotal}, sorry...</h3> :
+                    <>
+                        <h2>World data at last update: {dateFormat(dataworldtotal.date)}</h2>
+                        <p>Confirmed Cases: {dataworldtotal.confirmed}</p>
+                        <p>Active Cases: {dataworldtotal.active}</p>
+                        <p>Deaths: {dataworldtotal.deaths}</p>
+                        <p>Recovered: {dataworldtotal.recovered}</p>
+                        <p>Fatality rate: {dataworldtotal.fatality_rate}</p>
+                    </>}
+                </DataContainer>
+                <DataContainer>
+                {loadingbydate ? <img src = {svgloading}/> : 
                 errorbydate !== null ? <h3>Ooopss! error: {errorbydate}, sorry...</h3> :
-                <DataContainer>
-                    <h2>Date: {dateFormat(dataworldbydate.date)}</h2>
-                    <p>Confirmed Cases: {dataworldbydate.confirmed}</p>
-                    <p>Active Cases: {dataworldbydate.active}</p>
-                    <p>Deaths: {dataworldbydate.deaths}</p>
-                    <p>Recovered: {dataworldbydate.recovered}</p>
-                    <p>Fatality rate: {dataworldbydate.fatality_rate}</p>
-                </DataContainer>}
+                    <>
+                        <h2>Date: {dateFormat(dataworldbydate.date)}</h2>
+                        <p>Confirmed Cases: {dataworldbydate.confirmed}</p>
+                        <p>Active Cases: {dataworldbydate.active}</p>
+                        <p>Deaths: {dataworldbydate.deaths}</p>
+                        <p>Recovered: {dataworldbydate.recovered}</p>
+                        <p>Fatality rate: {dataworldbydate.fatality_rate}</p>
+                    </>}
+                </DataContainer>
             </DataInfo>
             <SomeCountries/>
         </Main>
