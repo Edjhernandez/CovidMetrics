@@ -27,6 +27,7 @@
 ### Git workflow
 ### styled components
 ### React
+### React Router
 ### Redux
 ### Jest
 ### Mock Service Worker
